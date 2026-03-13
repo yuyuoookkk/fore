@@ -3,6 +3,9 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -23,8 +26,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.variable} font-sans antialiased bg-[#020202] text-white`}>
         <SmoothScroll>
-          <Navbar />
-          {children}
+          <CartProvider>
+            <Navbar />
+            <CartDrawer />
+            {children}
+            <Footer />
+          </CartProvider>
         </SmoothScroll>
       </body>
     </html>

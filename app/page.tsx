@@ -7,7 +7,7 @@ import About from "@/components/About";
 import BentoGrid from "@/components/BentoGrid";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
+
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ export default function Home() {
         <BentoGrid />
         <Testimonials />
         <CTA />
-        <Footer />
+
       </div>
     </main>
   );

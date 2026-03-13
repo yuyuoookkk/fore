@@ -3,6 +3,8 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
+import WorldMap from "@/components/WorldMap";
+
 const stats = [
     { label: "Partner Farms", value: 45, suffix: "+" },
     { label: "Countries", value: 12, suffix: "" },
@@ -21,8 +23,15 @@ export default function BentoGrid() {
                     viewport={{ once: true }}
                     className="md:col-span-2 md:row-span-2 bg-neutral-900 rounded-3xl overflow-hidden relative"
                 >
-                    <div className="absolute inset-0 bg-neutral-800 animate-pulse" /> {/* Placeholder for image */}
-                    <div className="absolute bottom-6 left-6 right-6">
+                    <video
+                        src="/bentogrid/slowmo-bentogrid.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-6 left-6 right-6 z-10">
                         <h3 className="text-3xl font-bold">The Process</h3>
                         <p className="text-white/60">From cherry to cup.</p>
                     </div>
@@ -34,7 +43,8 @@ export default function BentoGrid() {
                 </div>
 
                 {/* Stats Block 2 */}
-                <div className="bg-neutral-900 rounded-3xl p-8 flex flex-col justify-between border border-white/5 md:col-start-4">
+                <div className="bg-neutral-900 rounded-3xl p-8 flex flex-col justify-between border border-white/5 md:col-start-4 relative overflow-hidden group">
+                    <WorldMap className="group-hover:opacity-50 transition-opacity duration-500" />
                     <CountUp end={stats[1].value} suffix={stats[1].suffix} label={stats[1].label} />
                 </div>
 
@@ -43,9 +53,17 @@ export default function BentoGrid() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="md:col-span-2 bg-[#111] rounded-3xl p-8 border border-white/5 flex flex-col justify-center"
+                    className="md:col-span-2 bg-[#111] rounded-3xl p-8 border border-white/5 flex flex-col justify-center relative overflow-hidden group"
                 >
-                    <p className="text-2xl font-light leading-relaxed text-white/80">
+                    <div className="absolute inset-0">
+                        <img
+                            src="/bentogrid/roast-quality.jpg"
+                            alt="Roasting Process"
+                            className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                    </div>
+                    <p className="text-2xl font-light leading-relaxed text-white/90 relative z-10">
                         "Quality is not an act, it is a habit. We strive for perfection in every roast."
                     </p>
                 </motion.div>

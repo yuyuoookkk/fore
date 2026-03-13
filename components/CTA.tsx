@@ -21,7 +21,7 @@ export default function CTA() {
 
             <div className="relative z-10 text-center px-6">
                 <h2 className="text-6xl md:text-9xl font-bold mb-8 text-white">Start the<br />Journey</h2>
-                <button className="bg-white text-black px-12 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform">
+                <button onClick={() => window.location.href = "/menu"} className="bg-white text-black px-12 py-5 rounded-full text-xl font-bold hover:scale-105 transition-transform">
                     Shop Now
                 </button>
             </div>
